@@ -1,11 +1,9 @@
 
-    const billetter = [];
-    const billettKjop = document.getElementById('kjop');
-    const slettBilletter = document.getElementById('slettBilletter');
+    const billetter= [];
 
     function validerOgRegistrerBillett(){
-        //const film = document.getElementById('film').value;
-        const valgtFilm = filmer.options[filmer.selectedIndex].text;
+        const film = document.getElementById('film');
+        const valgtFilm = film.options[film.selectedIndex].text;
         const antall = document.getElementById('antall').value;
         const fornavn = document.getElementById('fornavn').value;
         const etternavn = document.getElementById('etternavn').value;
@@ -50,7 +48,7 @@
         }
 
         // nullstill inputboksene
-        document.getElementById("filmer").selected=false;
+        document.getElementById("film").selected=false;
         document.getElementById("antall").value="";
         document.getElementById("fornavn").value="";
         document.getElementById("etternavn").value="";
@@ -58,6 +56,18 @@
         document.getElementById("epost").value="";
 
         visBilletter()
+    }
+    function visBilletter() {
+        // skriv ut billetter
+        let ut = "<table><tr>" +
+            "<th>Film</th><th>Antall</th><th>Fornavn</th><th>Etternavn</th><th>Telefonnr</th><th>Epost</th>" +
+            "</tr>";
+        for (let b of billetter){
+            ut+="<tr>";
+            ut+="<td>"+b.film+"</td><td>"+b.antall+"</td><td>"+b.fornavn+"</td><td>"+b.etternavn+"</td><td>"+b.telefonnr+"</td><td>"+b.epost+"</td>";
+            ut+="</tr>";
+        }
+        document.getElementById("billettListe").innerHTML=ut;
     }
     function slettBilletter() {
         billetter.length = 0;
