@@ -51,6 +51,7 @@
             document.getElementById("feilEtternavn").innerHTML="";
             document.getElementById("feilTelefonnr").innerHTML="";
             document.getElementById("feilEpost").innerHTML="";
+            visBilletter()
         }
 
         // nullstill inputboksene
@@ -60,20 +61,18 @@
         document.getElementById("etternavn").value="";
         document.getElementById("telefonnr").value="";
         document.getElementById("epost").value="";
-
-        visBilletter()
     }
     function visBilletter() {
         // skriv ut billetter
-        let ut = "<table><tr>" +
+        let utskrift = "<table><tr>" +
             "<th>Film</th><th>Antall</th><th>Fornavn</th><th>Etternavn</th><th>Telefonnr</th><th>Epost</th>" +
             "</tr>";
         for (let b of billetter){
-            ut+="<tr>";
-            ut+="<td>"+b.film+"</td><td>"+b.antall+"</td><td>"+b.fornavn+"</td><td>"+b.etternavn+"</td><td>"+b.telefonnr+"</td><td>"+b.epost+"</td>";
-            ut+="</tr>";
+            utskrift+="<tr>";
+            utskrift+="<td>"+b.film+"</td><td>"+b.antall+"</td><td>"+b.fornavn+"</td><td>"+b.etternavn+"</td><td>"+b.telefonnr+"</td><td>"+b.epost+"</td>";
+            utskrift+="</tr>";
         }
-        document.getElementById("billettListe").innerHTML=ut;
+        document.getElementById("billettListe").innerHTML=utskrift;
     }
     function slettBilletter() {
         billetter.length = 0;
