@@ -58,4 +58,8 @@
         document.getElementById("epost").value="";
 
         visBilletter()
-}
+    }
+    function slettBilletter() {
+        billetter.length = 0;
+        document.getElementById("billettListe").innerHTML="";
+    }
