@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script type="text/javascript" src="script.js"></script>
     <title>Bestilling av kinobilletter</title>
+    <script src="script.js"></script>
     <style>
         .smalBoks {
             width: 25px;
@@ -51,14 +51,14 @@
     <span id="feilEpost" style="color: red"></span>
     <br>
 
-    <button id="kjop">Kjøp billett</button>
+    <button id="kjop" onclick="validerOgRegistrerBillett()">Kjøp billett</button>
 
     <h2>Alle billetter</h2>
     <div id="billettListe">
 
     </div>
 
-    <button id="slettBilletter">Slett alle billettene</button>
+    <button id="slettBilletter" onclick="slettBilletter()">Slett alle billettene</button>
 
 </body>
 </html>
