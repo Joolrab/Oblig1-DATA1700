@@ -45,6 +45,12 @@
 
         if (antall !== "" && fornavn !== "" && etternavn !== "" && telefonnr !== "" && epost !== "" && valgtFilm !== "Velg film her") {
             billetter.push(billett);
+            document.getElementById("feilFilm").innerHTML="";
+            document.getElementById("feilAntall").innerHTML="";
+            document.getElementById("feilFornavn").innerHTML="";
+            document.getElementById("feilEtternavn").innerHTML="";
+            document.getElementById("feilTelefonnr").innerHTML="";
+            document.getElementById("feilEpost").innerHTML="";
         }
 
         // nullstill inputboksene
