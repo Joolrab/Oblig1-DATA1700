@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="script.js"></script>
+    <script type="text/javascript" src="script.js"></script>
     <title>Bestilling av kinobilletter</title>
 </head>
 <body>
@@ -15,21 +15,27 @@
         <option>Bat Man Returns Again and Again</option>
         <option>Trouble in the Jungle with Balloo</option>
     </select>
+    <span id="feilFilm" style="color: red"></span>
 
     <label for="antall">Antall</label>
     <input type="number" id="antall">
+    <span id="feilAntall" style="color: red"></span>
 
     <label for="fornavn">Fornavn</label>
     <input type="text" id="fornavn">
+    <span id="feilFornavn" style="color: red"></span>
 
     <label for="etternavn">Etternavn</label>
     <input type="text" id="etternavn">
+    <span id="feilEtternavn" style="color: red"></span>
 
     <label for="telefonnr">Telefonnr</label>
     <input type="tel" id="telefonnr">
+    <span id="feilTelefonnr" style="color: red"></span>
 
     <label for="epost">Epost</label>
     <input type="email" id="epost">
+    <span id="feilEpost" style="color: red"></span>
 
     <button id="kjop">Kjøp billett</button>
 
