@@ -1,7 +1,7 @@
 
-    const billetter= [];
+   const billetter= [];
+    function validerBillett() {
 
-    function validerOgRegistrerBillett(){
         const film = document.getElementById('film');
         const valgtFilm = film.options[film.selectedIndex].text;
         const antall = document.getElementById('antall').value;
@@ -23,7 +23,7 @@
             document.getElementById("feilFilm").innerHTML="Må velge film";
         }
 
-        if (antall === "") {
+        if (antall < 1) {
             document.getElementById("feilAntall").innerHTML="Må skrive inn antall";
         }
 
@@ -35,15 +35,17 @@
             document.getElementById("feilEtternavn").innerHTML="Må skrive inn etternavn";
         }
 
-        if (telefonnr === "") {
-            document.getElementById("feilTelefonnr").innerHTML="Må skrive inn telefonnr";
+       const telefonRegex = /^\d{8}$/;
+        if (!telefonRegex.test(telefonnr)) {
+            document.getElementById("feilTelefonnr").innerHTML="Må skrive inn gyldig telefonnr";
         }
 
-        if (epost === "") {
-            document.getElementById("feilEpost").innerHTML="Må skrive inn epost";
+        const epostRegex = /^[^@]+@[^@]+$/;
+        if (!epostRegex.test(epost)) {
+            document.getElementById("feilEpost").innerHTML="Må skrive inn gyldig epost";
         }
 
-        if (antall !== "" && fornavn !== "" && etternavn !== "" && telefonnr !== "" && epost !== "" && valgtFilm !== "Velg film her") {
+        if (antall >= 1 && fornavn !== "" && etternavn !== "" && telefonRegex.test(telefonnr) && epostRegex.test(epost) && valgtFilm !== "Velg film her") {
             billetter.push(billett);
             document.getElementById("feilFilm").innerHTML="";
             document.getElementById("feilAntall").innerHTML="";
@@ -52,16 +54,17 @@
             document.getElementById("feilTelefonnr").innerHTML="";
             document.getElementById("feilEpost").innerHTML="";
             visBilletter()
-        }
 
-        // nullstill inputboksene
-        document.getElementById("film").selected=false;
-        document.getElementById("antall").value="";
-        document.getElementById("fornavn").value="";
-        document.getElementById("etternavn").value="";
-        document.getElementById("telefonnr").value="";
-        document.getElementById("epost").value="";
+            // nullstill inputboksene
+            document.getElementById("film").selected=false;
+            document.getElementById("antall").value="";
+            document.getElementById("fornavn").value="";
+            document.getElementById("etternavn").value="";
+            document.getElementById("telefonnr").value="";
+            document.getElementById("epost").value="";
+        }
     }
+
     function visBilletter() {
         // skriv ut billetter
         let utskrift = "<table><tr>" +
@@ -74,6 +77,7 @@
         }
         document.getElementById("billettListe").innerHTML=utskrift;
     }
+
     function slettBilletter() {
         billetter.length = 0;
         document.getElementById("billettListe").innerHTML="";
